@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "chat-deployment"
+  namespace: "default"
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: "chat-deployment"
+    spec:
+      containers:
+      - name: "chat-deployment"
+        image: cafmf/chat-service:latest
+        ports:
+        - containerPort: 8080
